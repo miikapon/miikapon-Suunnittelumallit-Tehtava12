@@ -13,7 +13,7 @@ public class Main {
         Scanner lukija = new Scanner(System.in);
         boolean suunta = true;
 
-        String imgName = "piccc ";
+        String imgName = "kuva ";
         for (int i = 0; i < 10; i++) {
             kuvalista.add(new ProxyImage(imgName + (i + 1)));
         }
@@ -28,11 +28,11 @@ public class Main {
             kuvaitr = kuvalista.listIterator();
 
             while (kuvaitr.hasNext()) {
-                System.out.println("e: edellinen, s: seuraava");
+                System.out.println("edellinen valitse 1:, seuraava valitse 2");
                 String vastaus = lukija.next();
 
                 switch (vastaus) {
-                    case "s":
+                    case "2":
                         if (suunta == false) {
                             kuvaitr.next();
                             kuvaitr.next().displayImage();
@@ -43,7 +43,7 @@ public class Main {
                         }
                         break;
 
-                    case "e":
+                    case "1":
                         if (kuvaitr.hasPrevious() && suunta == true) {
                             kuvaitr.previous();
                             kuvaitr.previous().displayImage();
@@ -52,12 +52,12 @@ public class Main {
                         } else if (kuvaitr.hasPrevious() && suunta == false) {
                             kuvaitr.previous().displayImage();
                         } else {
-                            System.out.println("Ei ole enään edellisiä kuvia.");
+                            System.out.println("Ei enempää edellisiä kuvia.");
                         }
                         break;
 
                     default:
-                        System.out.println("Valitse s tai e!");
+                        System.out.println("Valitse 2 tai 1!");
                         break;
                 }
             }
